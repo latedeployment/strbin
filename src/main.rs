@@ -142,7 +142,7 @@ impl StringType {
 }
 static IPV4_REGEX: Lazy<Regex> = Lazy::new(|| Regex::new(r"\b(?:[0-9]{1,3}\.){3}[0-9]{1,3}\b").unwrap());
 static IPV6_REGEX: Lazy<Regex> = Lazy::new(|| Regex::new(r"(?i)\b(?:[0-9a-f]{0,4}:){2,7}[0-9a-f]{0,4}\b").unwrap());
-static PATH_REGEX: Lazy<Regex> = Lazy::new(|| Regex::new(r"(?:[a-zA-Z]:\\|/)[^\s]*").unwrap());
+static PATH_REGEX: Lazy<Regex> = Lazy::new(|| Regex::new(r"(?:[a-zA-Z]:[/\\]|/)(?:[a-zA-Z0-9_.\-]+[/\\])+[a-zA-Z0-9_.\-]+|(?:[a-zA-Z]:[/\\]|/)[a-zA-Z0-9_.\-]+\.[a-zA-Z0-9]+").unwrap());
 static FORMAT_REGEX: Lazy<Regex> = Lazy::new(|| Regex::new(r"%[sdfx]|\{\}|\{[0-9]+\}").unwrap());
 // Match JWT tokens and common API key patterns, but not random alphanumeric strings or mangled names
 static SECRET_REGEX: Lazy<Regex> = Lazy::new(|| Regex::new(r"(?:ey[A-Za-z0-9_-]{20,}\.[A-Za-z0-9_-]{20,}\.[A-Za-z0-9_-]{20,})|(?:AKIA[0-9A-Z]{16})|(?:(?:sk|pk|api|token)_[A-Za-z0-9]{32,})").unwrap());
