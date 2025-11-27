@@ -1,5 +1,19 @@
 use std::io::{self, BufRead, BufReader};
+use regex::Regex;
 
+enum StringType {
+    JunkString,
+    RegularString,
+    IPv4String,
+    IPv6String,
+    PathString,
+    FormatMessageString,
+    SecretString
+}
+fn figure_out_string(line: &str) {
+    // TBD
+    
+}
 
 fn handle_line(line: &str) {
     println!("{}", line);
